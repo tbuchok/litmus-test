@@ -1,0 +1,16 @@
+{
+  "name": "litmus-test",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tom Buchok <tom@buchok.com> (http://buchok.com/)",
+  "license": "BSD",
+  "dependencies": {
+    "request": "~2.27.0",
+    "commander": "~2.0.0",
+    "sax": "~0.5.5"
+  }
+}
