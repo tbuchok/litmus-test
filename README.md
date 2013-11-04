@@ -6,16 +6,56 @@ Run Litmus Tests directly from the command line using Node.
 
 `$ npm install litmus-test`
 
-## Usage
+## Quick start
 
-Point Litmus Test to files on the internet:
+Pipe a file at it:
 
+```bash
+$ cat path/to/email.html | litmus-test
 ```
-$ litmus-test -url http://domain.com/email.html
+
+Or use a Node.js stream:
+
+```js
+var fs = require('fs')
+  , LitmusTest = require('./lib/litmus-test')
+;
+
+fs.createReadStream('foo/bar.html')
+  .pipe(new LitmusTest)
+;
 ```
 
-Or simply pipe a file at it:
+## API integration
 
+### List tests
+
+LitmusTest uses a LevelDB store to keep track of tests.
+
+```bash
+$ litmus-test ls
 ```
-$ cat email.html | litmus-test
+
+This listing can be updated:
+
+```bash
+$ litmus-test update
+```
+
+### Re-test
+
+```bash
+$ cat path/to/email.html | litmus-test TEST_ID
+```
+
+Within Node.js, it is possible to create-or-retest:
+
+```js
+var fs = require('fs')
+  , LitmusTest = require('./lib/litmus-test')
+;
+
+fs.createReadStream('foo/bar.html')
+  .pipe(new LitmusTest({ id: TEST_ID }))
+;
 ```
