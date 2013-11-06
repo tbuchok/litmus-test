@@ -10,12 +10,16 @@ program
   .option('-t, --testId <n>', 'test id for re-testing emails')
   .option('-i, --imagePath [value]', 'images file path')
   .option('-f, --htmlFile [value]', 'html email file to test')
+  .option('-d, --dir [value]', 'set s3 directory to upload assets in bucket')
   .option('-l, --list', 'retrieve list of tests from litmus api')
   .parse(process.argv)
 ;
 
 if (program.list)
   return LitmusTest.list();
+
+if (program.dir === undefined)
+  return console.error('ERR: directory [-d] is required in order to upload assets.');
 
 if (program.imagePath) {
   var imagesDir = path.join(process.cwd(), program.imagePath);
