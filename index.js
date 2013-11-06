@@ -10,9 +10,12 @@ program
   .option('-t, --testId <n>', 'test id for re-testing emails')
   .option('-i, --imagePath [value]', 'images file path')
   .option('-f, --htmlFile [value]', 'html email file to test')
+  .option('-l, --list', 'retrieve list of tests from litmus api')
   .parse(process.argv)
 ;
 
+if (program.list)
+  return LitmusTest.list();
 
 if (program.imagePath) {
   var imagesDir = path.join(process.cwd(), program.imagePath);
