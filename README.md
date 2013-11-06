@@ -26,6 +26,7 @@ fs.createReadStream('foo/bar.html')
 ;
 ```
 
+# NOT IMPLEMENTED
 ## API integration
 
 ### List tests

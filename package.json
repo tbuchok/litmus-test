@@ -11,6 +11,9 @@
   "dependencies": {
     "request": "~2.27.0",
     "commander": "~2.0.0",
-    "sax": "~0.5.5"
+    "sax": "~0.5.5",
+    "email": "~0.2.6",
+    "knox": "~0.8.6",
+    "jsdom": "~0.8.8"
   }
 }
