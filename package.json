@@ -14,7 +14,8 @@
     "sax": "~0.5.5",
     "email": "~0.2.6",
     "knox": "~0.8.6",
-    "jsdom": "~0.8.8"
+    "jsdom": "~0.8.8",
+    "mime": "~1.2.11"
   },
   "bin": {
     "litmus-test": "index.js"

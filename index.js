@@ -10,7 +10,7 @@ var path = require('path')
 program
   .version('0.0.1')
   .option('-t, --testId <n>', 'test id for re-testing emails')
-  .option('-i, --imagePath [value]', 'images file path')
+  .option('-i, --imageDir [value]', 'images file path')
   .option('-f, --htmlFile [value]', 'html email file to test')
   .option('-d, --dir [value]', 'set s3 directory to upload assets in bucket')
   .option('-l, --list', 'retrieve list of tests from litmus api')
@@ -23,8 +23,8 @@ if (program.list)
 if (program.dir === undefined)
   return console.error('ERR: directory [-d] is required in order to upload assets.');
 
-if (program.imagePath) {
-  var imagesDir = path.join(process.cwd(), program.imagePath);
+if (program.imageDir) {
+  var imagesDir = path.join(process.cwd(), program.imageDir);
   if (!fs.existsSync(imagesDir))
     return console.error('ERR: Image file path does not exist. Update and try again.')
 }
