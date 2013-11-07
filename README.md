@@ -30,7 +30,7 @@ Pipe a file at it:
 $ cat path/to/email.html | litmus-test -d test/dir
 ```
 
-Or use a Node.js stream:
+*PENDING: Or use a Node.js stream:*
 
 ```js
 var fs = require('fs')
@@ -75,7 +75,7 @@ $ litmus-test -l
 $ cat path/to/email.html | litmus-test -t TEST_ID
 ```
 
-Within Node.js, it is possible to create-or-retest:
+*PENDING: within Node.js, it is possible to create-or-retest:*
 
 ```js
 var fs = require('fs')
