@@ -15,7 +15,8 @@
     "email": "~0.2.6",
     "knox": "~0.8.6",
     "jsdom": "~0.8.8",
-    "mime": "~1.2.11"
+    "mime": "~1.2.11",
+    "juice": "~0.4.0"
   },
   "bin": {
     "litmus-test": "index.js"
