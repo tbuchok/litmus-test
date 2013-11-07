@@ -1,3 +1,5 @@
+#! /usr/local/bin/node
+
 var path = require('path')
   , fs = require('fs')
   , LitmusTest = require('./lib/litmus-test')
