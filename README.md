@@ -2,16 +2,30 @@
 
 Run Litmus Tests directly from the command line using Node.
 
+A work in progress :(
+
 ## Install
 
-`$ npm install litmus-test`
+```bash
+$ npm install litmus-test
+```
+
+*Note: This will need to be `npm link`ed for now.*
+
+## Configure
+
+```bash
+$ cp config.example.json config.json
+```
+
+And update the settings however you like.
 
 ## Quick start
 
 Pipe a file at it:
 
 ```bash
-$ cat path/to/email.html | litmus-test
+$ cat path/to/email.html | litmus-test -d test/dir
 ```
 
 Or use a Node.js stream:
@@ -26,27 +40,37 @@ fs.createReadStream('foo/bar.html')
 ;
 ```
 
-# NOT IMPLEMENTED
+## Help
+
+Thankfully, `commander` provides us with a command-line help:
+
+```bash
+$ litmus-test -h
+  Usage: litmus-test [options]
+
+  Options:
+
+    -h, --help              output usage information
+    -V, --version           output the version number
+    -t, --testId <n>        test id for re-testing emails
+    -i, --imageDir [value]  images file path
+    -f, --htmlFile [value]  html email file to test
+    -d, --dir [value]       set s3 directory to upload assets in bucket
+    -l, --list              retrieve list of tests from litmus api
+```
+
 ## API integration
 
 ### List tests
 
-LitmusTest uses a LevelDB store to keep track of tests.
-
 ```bash
-$ litmus-test ls
-```
-
-This listing can be updated:
-
-```bash
-$ litmus-test update
+$ litmus-test -l
 ```
 
 ### Re-test
 
 ```bash
-$ cat path/to/email.html | litmus-test TEST_ID
+$ cat path/to/email.html | litmus-test -t TEST_ID
 ```
 
 Within Node.js, it is possible to create-or-retest:
@@ -57,6 +81,6 @@ var fs = require('fs')
 ;
 
 fs.createReadStream('foo/bar.html')
-  .pipe(new LitmusTest({ id: TEST_ID }))
+  .pipe(new LitmusTest({ testId: TEST_ID }))
 ;
 ```
