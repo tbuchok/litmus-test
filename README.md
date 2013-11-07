@@ -14,6 +14,8 @@ $ npm install litmus-test
 
 ## Configure
 
+*TODO: Use a local package.json file.*
+
 ```bash
 $ cp config.example.json config.json
 ```
